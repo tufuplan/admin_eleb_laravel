@@ -12,7 +12,7 @@
         @foreach($Categorys as $category)
             <tr data-id="{{$category->id}}">
                 <td>{{$category->id}}</td>
-                <td><img src="{{\Illuminate\Support\Facades\Storage::url($category->cover)}}" alt="图片"></td>
+                <td><img width="50px" src="{{$category->cover}}"></td>
                 <td>{{$category->name}}</td>
                 <td>
                     <a href="{{route('categorys.edit',$category)}}" class="btn btn-primary">修改</a>
@@ -39,7 +39,7 @@
                   var id =tr.attr('data-id');
                   $.ajax({
                       type:'DELETE',
-                      url:'gcategorys/'+id,
+                      url:'categorys/'+id,
                       data:'_token={{csrf_token()}}',
                       success : function () {
                           tr.fadeOut();

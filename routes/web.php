@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 //商家分类的增删改查
-Route::resource('categorys','Admin\CategoryController');
-//商家登录与注册
-//Route::resoure('users','Admin\UserController');
+Route::resource('categorys','CategoryController');
+//管理员的增删改查
+Route::resource('admins','AdminController');
 //管理员登录与注销
-Route::resource('admins','Admin\AdminController');
-Route::resource('addadmins','Admin\AddAdminController');
-//商家的增删改查
-Route::resource('shops','BusinessController');
+Route::get('/login','SessionController@login');
+Route::post('/login','SessionController@store');
+Route::delete('/logout','SessionController@logout');
+
 
 
 
