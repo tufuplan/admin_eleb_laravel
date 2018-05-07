@@ -6,7 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
+
 {
+    public function __construct()
+    {
+        //用以控制去权限
+        $this->middleware('auth',
+            ['except'=>[
+                'login','store'
+            ]]);
+        $this->middleware('guest',
+            ['only'=>
+            [
+                'login','store'
+            ]
+            ]);
+    }
     //用以登录的控制器
     public function login()
     {

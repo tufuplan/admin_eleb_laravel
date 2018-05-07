@@ -1,4 +1,4 @@
-@extends('Default.default')
+@extends('Default.default_login')
 @section('title','管理员登录')
     @section('content')
         <form method="post" action="/login">

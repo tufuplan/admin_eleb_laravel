@@ -13,24 +13,38 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="">消费充值<span class="sr-only">(current)</span></a></li>
-                <li><a href="">商家列表</a></li>
-                <li><a href="{{route('admins.index')}}">管理员列表</a></li>
-                <li><a href="/categorys">商家所属分类列表</a></li>
+            {{\App\Menu::nav()}}
+            {{--<ul class="nav navbar-nav">--}}
+                {{--<li class="active"><a href=""><span class="sr-only">(current)</span></a></li>--}}
+                {{--<li><a href="{{route('shops.index')}}">商家列表</a></li>--}}
+                {{--<li><a href="{{route('admins.index')}}">管理员列表</a></li>--}}
+                {{--<li><a href="{{route('activity.create')}}">平台添加活动</a></li>--}}
+                {{--<li><a href="{{route('activity.index')}}">添加活动的列表</a></li>--}}
+                {{--<li><a href="/categorys">商家所属分类列表</a></li>--}}
+                {{--<li class="dropdown">--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">下拉<span class="caret"></span></a>--}}
+
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li><a href="/orderCount">统计商户订单页</a></li>--}}
+                        {{--<li><a href="/dishCount">统计商户菜品页</a></li>--}}
+                        {{--<li><a href="{{route('role.index')}}">角色列表</a></li>--}}
+                        {{--<li><a href="{{route('permission.index')}}">权限列表</a></li>--}}
+                        {{--<li><a href=""></a></li>--}}
+                        {{--<li role="separator" class="divider"></li>--}}
+                        {{--<li><a href="#">Separated link</a></li>--}}
+                        {{--<li role="separator" class="divider"></li>--}}
+                        {{--<li><a href="#"></a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消费详情<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">菜单管理<span class="caret"></span></a>
+
                     <ul class="dropdown-menu">
-                        <li><a href="">消费记录</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#"></a></li>
+                        <li><a href="{{route('menu.index')}}">菜单列表</a></li>
+                        <li><a href="{{route('menu.create')}}">菜单添加</a></li>
                     </ul>
                 </li>
-            </ul>
+            {{--</ul>--}}
             <form class="navbar-form navbar-left" method="get" action="@yield('action')">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="keyword">
@@ -38,8 +52,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-
+                @if(!\Illuminate\Support\Facades\Auth::user())
                 <li><a href="/login">登录</a></li>
+                @endif
+                @if(\Illuminate\Support\Facades\Auth::user())
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注销选项<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -54,6 +70,8 @@
                         </form>
                     </ul>
                 </li>
+                    @endif
+
 
             </ul>
         </div><!-- /.navbar-collapse -->

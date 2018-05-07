@@ -13,7 +13,8 @@
             <td>{{$admin->id}}</td>
             <td>{{$admin->name}}</td>
             <td><img src="{{$admin->photo}}" width="50px"></td>
-            <td><a href="{{route('admins.edit',$admin)}}">修改 </a> <a href="">删除</a></td>
+            <td>
+                <a href="{{route('admins.edit',$admin)}}">修改 </a> <a href="">删除</a></td>
         </tr>
             @endforeach
         <tr>

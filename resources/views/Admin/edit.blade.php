@@ -31,6 +31,12 @@
         </div>
         {{csrf_field()}}
         {{method_field('PUT')}}
+        <h1>请选择该用户的角色</h1>
+        @foreach($role_list as $role)
+            <label class="checkbox-inline">
+                <input type="checkbox" id="{{$role->name}}" {{$admin->hasRole($role->name)?'checked':''}} value="{{$role->id}}" name="role[]"> {{$role->display_name}}
+            </label>
+        @endforeach
         <button type="submit" class="btn btn-default">马上修改</button>
     </form>
 @stop

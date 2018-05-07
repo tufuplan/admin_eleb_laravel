@@ -10,6 +10,11 @@ use Illuminate\Validation\Rule;
 class CategoryController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    //分类列表的显示
     public function index()
     {
         //分类列表的显示

@@ -24,6 +24,12 @@
             <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
         </div>
         {{csrf_field()}}
+        <h1>请选择该用户的角色</h1>
+        @foreach($role_list as $role)
+            <label class="checkbox-inline">
+                <input type="checkbox" id="{{$role->name}}" value="{{$role->id}}" name="role[]"> {{$role->display_name}}
+            </label>
+        @endforeach
         <button type="submit" class="btn btn-default">成为管理员</button>
     </form>
 @stop
