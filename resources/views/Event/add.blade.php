@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
-
 <head>
     <meta charset="UTF-8">
     <title>平台添加抽奖活动</title>
@@ -13,6 +12,8 @@
 
 <body>
 <!-- 加载编辑器的容器 -->
+@include('Default/_error')
+@include('Default/_success')
 <form method="post" action="{{route('event.index')}}">
     <div class="form-group">
         <label for="title">活动标题</label>
