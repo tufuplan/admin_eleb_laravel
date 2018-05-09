@@ -31,7 +31,7 @@ Route::get('/dishCount','OrderController@dishCount')->name('dishCount');
 //按时间搜索商户菜品销量
 Route::post('/dishCount','OrderController@goodCount');
 //角色资源
-Route::resource('role','Rolecontroller');
+Route::resource('role','RoleController');
 //权限资源
 Route::resource('permission','PermissionController');
 //管理员选择角色
