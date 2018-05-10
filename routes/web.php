@@ -11,16 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 //商家分类的增删改查
 Route::resource('categorys','CategoryController');
 //管理员的增删改查
 Route::resource('admins','AdminController');
 //    ->middleware('role:admin');
 //管理员登录与注销
-Route::get('/login','SessionController@login')->name('login');
+Route::get('/','SessionController@login')->name('login');
 Route::post('/login','SessionController@store');
 Route::delete('/logout','SessionController@logout');
 Route::resource('shops','ShopController');
@@ -46,6 +44,9 @@ Route::resource('prize','PrizeController');
 Route::get('/jiang','EventController@jiang');
 //用户查看抽奖的结果
 Route::get('/result','EventController@result');
+//平台搜索商户处理
+Route::post('/searchResult','SearchController@result')->name('searchDeal');
+
 
 
 
